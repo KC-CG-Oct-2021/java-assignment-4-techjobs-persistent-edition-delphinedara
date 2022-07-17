@@ -1,4 +1,9 @@
 -- Part 1: Test it with SQL
+-- Job Table: Columns & Data Types
+-- id - INT
+-- employer - VARCHAR
+-- name - VARCHAR
+-- skills - VARCHAR
 
 -- Part 2: Test it with SQL
 
