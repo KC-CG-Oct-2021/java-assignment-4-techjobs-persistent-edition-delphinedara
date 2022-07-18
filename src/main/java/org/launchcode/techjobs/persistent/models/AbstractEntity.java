@@ -1,12 +1,12 @@
 package org.launchcode.techjobs.persistent.models;
 
-import org.thymeleaf.expression.Objects;
-
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
+
+import static java.util.Objects.hash;
 
 
 @MappedSuperclass
@@ -43,7 +43,7 @@ public abstract class AbstractEntity {
     }
 
     public int hashCode() {
-        return Objects.hash(id);
+        return hash(id);
     }
 
 }

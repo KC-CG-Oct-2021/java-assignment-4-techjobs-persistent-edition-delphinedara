@@ -1,6 +1,8 @@
 package org.launchcode.techjobs.persistent.controllers;
 
 import org.launchcode.techjobs.persistent.models.Employer;
+import org.launchcode.techjobs.persistent.models.data.EmployerRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
@@ -12,6 +14,20 @@ import java.util.Optional;
 @Controller
 @RequestMapping("employers")
 public class EmployerController {
+    //Add a private field of EmployerRepository type called employerRepository to EmployerController.
+    // Give this field an @Autowired annotation.
+    @Autowired
+    private EmployerRepository  employerRepository;
+
+    //Add an index method that responds at /employers with a list of all employers in the database.
+    // This method should use the template employers/index. To figure out the name of
+    // the model attribute you should use to pass employers into the view, review this template.
+    @GetMapping("")
+    public String index(Model model){
+        model.addAttribute("title", "add employer");
+        model.addAttribute("employers", employerRepository.findAll());
+        return "employers/index";
+    }
 
 
     @GetMapping("add")
